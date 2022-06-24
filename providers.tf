@@ -20,8 +20,8 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 
-  assume_role {
-    role_arn = "arn:aws:iam::${lookup(var.env, terraform.workspace)}:role/Terraform_Admin_Role"
-  }
+#   assume_role {
+#     role_arn = "arn:aws:iam::${lookup(var.env, terraform.workspace)}:role/Terraform_Admin_Role"
+#   }
 }
 

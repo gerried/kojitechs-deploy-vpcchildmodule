@@ -1,9 +1,9 @@
 
-variable "env" {
-  description = "List of all accounts"
-  type        = map(string)
-  default     = {}
-}
+# variable "env" {
+#   description = "List of all accounts"
+#   type        = map(string)
+#   default     = {}
+# }
 
 variable "vpc_cidr" {
   type    = list(any)
