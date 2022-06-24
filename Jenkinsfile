@@ -1,9 +1,7 @@
 
 pipeline {
         agent any
-    tools {
-        terraform 'terraform'
-    }
+    
     parameters { 
         choice(name: 'ENVIRONMENT', choices: ['', 'prod', 'dev', 'sbx'], description: "SELECT THE ACCOUNT YOU'D LIKE TO DEPLOY TO.")
         choice(name: 'ACTION', choices: ['', 'apply', 'destroy'], description: 'Select action, BECAREFUL IF YOU SELECT DESTROY TO PROD')
