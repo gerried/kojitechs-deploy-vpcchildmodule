@@ -10,3 +10,4 @@ module "networking" {
   database_subnet_cidr = var.database_subnet_cidr
   database_subnet_az   = ["us-east-1a", "us-east-1b"]
 }
+

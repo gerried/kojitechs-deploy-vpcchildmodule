@@ -19,7 +19,6 @@ pipeline {
         stage('TerraformInit'){
             steps {
                     sh """
-                        rm -rf .terraform 
                         terraform init -upgrade=true
                         echo \$PWD
                         whoami

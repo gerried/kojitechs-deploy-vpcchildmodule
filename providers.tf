@@ -3,7 +3,7 @@ terraform {
   required_version = ">=1.1.5"
 
   backend "s3" {
-    bucket         = "kojitechs-deploy-vpcchildmodule-tf-12"
+    bucket         = "kojitechs-deploy-vpcchildmodule.tf-12"
     dynamodb_table = "terraform-lock"
     key            = "path/env"
     region         = "us-east-1"
