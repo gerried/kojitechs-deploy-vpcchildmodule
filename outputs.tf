@@ -16,7 +16,7 @@ output "private_subnet" {
 # public_subnet
 output "public_subnet" {
     description = "This is public subnet id"
-    value = module.networking.pub_subnet
+    value = module.networking.public_subnet
 }
 
 # database subnet
