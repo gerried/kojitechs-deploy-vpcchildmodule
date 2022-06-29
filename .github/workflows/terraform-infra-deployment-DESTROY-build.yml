@@ -59,7 +59,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       id: Destroy
       run: |
-        terraform destroy -var-file="${{ matrix.environment }}.tfvars"    
+        terraform destroy -var-file="${{ matrix.environment }}.tfvars"  --auto-approve
 
   comment:
     runs-on: ubuntu-latest
