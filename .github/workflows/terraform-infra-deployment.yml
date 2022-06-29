@@ -1,17 +1,7 @@
 
 name: "Terraform Deployment"
 
-on:
-  workflow_dispatch:
-  push:
-    paths:
-      - '/*'
-  pull_request:
-    branches: [main]
-
-defaults:
-  run:
-    shell: bash
+on: [push]
 
 jobs:
   terraform:
@@ -57,16 +47,16 @@ jobs:
         terraform plan -var-file="${{ matrix.environment }}.tfvars"  -out="plan.${{ matrix.environment }}" -no-color 
       continue-on-error: true  
 
-    # - name: Terraform Destroy
-    #   if: github.ref == 'refs/heads/main'
-    #   id: Destroy
-    #   run: |
-    #     terraform destroy -var-file="${{ matrix.environment }}.tfvars" -auto-approve
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' 
-      id: Apply
+    - name: Terraform Destroy
+      if: github.ref == 'refs/heads/main'
+      id: Destroy
       run: |
-        terraform apply "plan.${{ matrix.environment }}"    
+        terraform destroy -var-file="${{ matrix.environment }}.tfvars" -auto-approve
+    # - name: Terraform Apply
+    #   if: github.ref == 'refs/heads/main' 
+    #   id: Apply
+    #   run: |
+    #     terraform apply "plan.${{ matrix.environment }}"    
 
   comment:
     runs-on: ubuntu-latest
