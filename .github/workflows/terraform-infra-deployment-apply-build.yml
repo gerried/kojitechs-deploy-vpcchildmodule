@@ -1,5 +1,5 @@
 
-name: "Terraform Deployment"
+name: "Terraform Deployment APPLY"
 
 on:
   workflow_dispatch:
