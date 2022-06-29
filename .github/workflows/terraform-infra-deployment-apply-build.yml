@@ -1,7 +1,13 @@
 
 name: "Terraform Deployment"
 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '/*'
+  pull_request:
+    branches: [main]
 
 jobs:
   terraform:
@@ -49,11 +55,6 @@ jobs:
         terraform plan -var-file="${{ matrix.environment }}.tfvars"  -out="plan.${{ matrix.environment }}" -no-color 
       continue-on-error: true  
 
-    # - name: Terraform Destroy
-    #   if: github.ref == 'refs/heads/main'
-    #   id: Destroy
-    #   run: |
-    #     terraform destroy -var-file="${{ matrix.environment }}.tfvars" 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' 
       id: Apply
