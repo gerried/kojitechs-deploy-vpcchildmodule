@@ -23,8 +23,6 @@ jobs:
          include:
            - environment: dev
              runner: ubuntu-latest
-           - environment: sbx
-             runner: ubuntu-18.04  
 
     env:
          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
