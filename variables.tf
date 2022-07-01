@@ -6,8 +6,8 @@ variable "env" {
 }
 
 variable "vpc_cidr" {
-  type    = list(any)
-  default = []
+  type    = string
+  default = ""
 }
 
 variable "pub_subnet_cidr" {
