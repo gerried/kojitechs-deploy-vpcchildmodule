@@ -3,8 +3,8 @@ pipeline {
         agent any
     
     parameters { 
-        choice(name: 'ENVIRONMENT', choices: ['', 'prod', 'dev', 'sbx'], description: "SELECT THE ACCOUNT YOU'D LIKE TO DEPLOY TO.")
-        choice(name: 'ACTION', choices: ['', 'apply', 'destroy'], description: 'Select action, BECAREFUL IF YOU SELECT DESTROY TO PROD')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'prod', 'dev', 'sbx'], description: "SELECT THE ACCOUNT YOU'D LIKE TO DEPLOY TO.")
+        choice(name: 'ACTION', choices: ['apply', 'apply', 'destroy'], description: 'Select action, BECAREFUL IF YOU SELECT DESTROY TO PROD')
     }
     stages{    
         stage('Git checkout') {
